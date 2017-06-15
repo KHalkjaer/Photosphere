@@ -26,7 +26,6 @@ public class PhotosphereBehaviour : MonoBehaviour {
 	[Header("Style Settings")]
 	[DontSaveMember]public GUIStyle style;
 	
-	// Use this for initialization
 	void Start () {
 		// Nothing happening here at the moment 
 	}
@@ -70,15 +69,18 @@ public class PhotosphereBehaviour : MonoBehaviour {
 
     	// Main Screen
     	if(state == "main"){
-    		if (GUI.Button(new Rect(Screen.width-130, Screen.height-50, 120, 40), "Set Image Path")){
+    		// Main screen button
+    		if (GUI.Button(new Rect(Screen.width-1.1f*Screen.width/7, Screen.height-3.75f*Screen.height/9, Screen.width/7, Screen.height/9), "Set Image Path")){
 	        	state = "setImagePath";
 	        }
 
-	        if (GUI.Button(new Rect(Screen.width-130, Screen.height-100, 120, 40), "Load Floorplan")){
+	        // Main screen button
+	        if (GUI.Button(new Rect(Screen.width-1.1f*Screen.width/7, Screen.height-2.5f*Screen.height/9, Screen.width/7, Screen.height/9), "Load Floorplan")){
 	        	state = "loadFloor";
 	        }
 
-	       	if (GUI.Button(new Rect(Screen.width-130, Screen.height-150, 120, 40), "Place Photosphere")){
+	        // Main screen button
+	       	if (GUI.Button(new Rect(Screen.width-1.1f*Screen.width/7, Screen.height-1.25f*Screen.height/9, Screen.width/7, Screen.height/9), "Place Photosphere")){
 	        	state = "defineSphere";
 	        }
     	}
@@ -86,10 +88,11 @@ public class PhotosphereBehaviour : MonoBehaviour {
     	// Change Imagepath
     	if(state == "setImagePath"){
 
+    		// Set variable based on text field
     		GUI.Label(new Rect(Screen.width/2-250, Screen.height/2-20, 100, 20), "Image Path:", style);
-        	imagePath = GUI.TextField(new Rect(Screen.width/2-250, Screen.height/2, 500, 20), imagePath, 50);
+        	imagePath = GUI.TextField(new Rect(Screen.width/2-Screen.width/4, Screen.height/2, Screen.width/2, Screen.height/18), imagePath, 50);
 	       	
-	       	if (GUI.Button(new Rect(Screen.width/2-25,  Screen.height/2+30, 50, 40), "Set")){
+	       	if (GUI.Button(new Rect(Screen.width/2-Screen.width/14,  Screen.height/2+Screen.height/14, Screen.width/7, Screen.height/9), "Set")){
 	        	state = "main";
 	        } 
     	}
@@ -101,10 +104,11 @@ public class PhotosphereBehaviour : MonoBehaviour {
     			quad = GameObject.FindWithTag("Floorplan");
     		}
 
+    		// Set variable based on text field
     		GUI.Label(new Rect(Screen.width/2-250, Screen.height/2-20, 100, 20), "Floorplan Image Name:", style);
-        	floorplanPath = GUI.TextField(new Rect(Screen.width/2-250, Screen.height/2, 500, 20), floorplanPath, 50);
+        	floorplanPath = GUI.TextField(new Rect(Screen.width/2-Screen.width/4, Screen.height/2, Screen.width/2, Screen.height/18), floorplanPath, 50);
 	       	
-	       	if (GUI.Button(new Rect(Screen.width/2-25,  Screen.height/2+30, 50, 40), "Load")){
+	       	if (GUI.Button(new Rect(Screen.width/2-Screen.width/14,  Screen.height/2+Screen.height/14, Screen.width/7, Screen.height/9), "Load")){
 	        	StartCoroutine(LoadFloorTexture());
 	        	state = "main";
 	        } 
@@ -113,21 +117,23 @@ public class PhotosphereBehaviour : MonoBehaviour {
     	// Settings for new photosphere
     	if(state == "defineSphere"){
     		// Left Eye
-       		GUI.Label(new Rect(Screen.width/2-250, Screen.height/2-70, 100, 20), "Left Sphere Name:", style);
-        	leftSphere = GUI.TextField(new Rect(Screen.width/2-250, Screen.height/2-50, 500, 20), leftSphere, 50);
+    		// Set variable based on text field
+       		GUI.Label(new Rect(Screen.width/2-50, Screen.height/2-Screen.height/9-20, 100, 20), "Left Sphere Name:", style);
+        	leftSphere = GUI.TextField(new Rect(Screen.width/2-Screen.width/4, Screen.height/2-Screen.height/9, Screen.width/2, Screen.height/18), leftSphere, 50);
 
         	// Right Eye
-        	GUI.Label(new Rect(Screen.width/2-250, Screen.height/2-20, 100, 20), "Right Sphere Name:", style);
-        	rightSphere = GUI.TextField(new Rect(Screen.width/2-250, Screen.height/2, 500, 20), rightSphere, 50);
+        	// Set variable based on text field
+        	GUI.Label(new Rect(Screen.width/2-50, Screen.height/2-20, 100, 20), "Right Sphere Name:", style);
+        	rightSphere = GUI.TextField(new Rect(Screen.width/2-Screen.width/4, Screen.height/2, Screen.width/2, Screen.height/18), rightSphere, 50);
 
-        	if (GUI.Button(new Rect(Screen.width/2-75,  Screen.height/2+30, 50, 40), "Load")){
+        	if (GUI.Button(new Rect(Screen.width/2-Screen.width/7-Screen.width/21,  Screen.height/2+Screen.height/10, Screen.width/7, Screen.height/9), "Load")){
         		leftSphereTextures.Add(leftSphere);
         		rightSphereTextures.Add(rightSphere);
 
 	        	state = "placeSphere";
 	        }
 
-			if (GUI.Button(new Rect(Screen.width/2+25,  Screen.height/2+30, 50, 40), "Cancel")){
+			if (GUI.Button(new Rect(Screen.width/2+Screen.width/21,  Screen.height/2+Screen.height/10, Screen.width/7, Screen.height/9), "Cancel")){
 	        	state = "main";
 	        }
     	}

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Floorplan
   - Behaviour
+  - Sphere
   layers:
   - Default
   - TransparentFX

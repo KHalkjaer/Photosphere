@@ -9,7 +9,10 @@ public class SaveMaterial : MonoBehaviour {
 	}
 
 	IEnumerator WaitForLoad(){
+		// Wait for Behaviour to spawn
 		yield return new WaitForSeconds(0.1f);
+		// Load in .5 seconds after the final sphere
+		yield return new WaitForSeconds(0.15f+0.25f*GameObject.FindWithTag("Behaviour").GetComponent<PhotosphereBehaviour>().sphereCount);
 
 		if(GameObject.FindWithTag("Behaviour").GetComponent<PhotosphereBehaviour>().floorplanPath != ""){
 			StartCoroutine(LoadFloorTexture());

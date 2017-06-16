@@ -9,6 +9,8 @@ public class Navigator : MonoBehaviour {
 	public GameObject leftSphere;
 	public GameObject rightSphere;
 
+	public GameObject quad;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -23,23 +25,34 @@ public class Navigator : MonoBehaviour {
      		Debug.DrawRay(this.transform.position, fwd * 50, Color.green);
 
      		if (Physics.Raycast(this.transform.position, fwd, out objectHit, 50)){
+     			if(objectHit.transform.gameObject.tag=="Sphere"){
+	     			Debug.Log(objectHit.transform.name);
 
-			 	Debug.Log(objectHit.transform.name);
+				 	// Deactivate Current Spheres
+				 	if(leftSphere)
+				 	leftSphere.SetActive(false);
 
-			 	// Deactivate Current Spheres
-			 	leftSphere.SetActive(false);
-			 	rightSphere.SetActive(false);
+				 	if(rightSphere)
+				 	rightSphere.SetActive(false);
 
-			 	// Set New Spheres and Activate Them
-			 	leftSphere = objectHit.transform.GetChild(0).gameObject;
-				objectHit.transform.GetChild(0).gameObject.SetActive(true);
+				 	// Disable Quad
+				 	if(!quad){
+    					quad = GameObject.FindWithTag("Floorplan");
+    				}
 
-				rightSphere = objectHit.transform.GetChild(1).gameObject;
-				objectHit.transform.GetChild(1).gameObject.SetActive(true);
-				// ---
+    				Destroy(quad);
 
-				// Move Player
-				player.position = objectHit.transform.position;
+				 	// Set New Spheres and Activate Them
+				 	leftSphere = objectHit.transform.GetChild(0).gameObject;
+					objectHit.transform.GetChild(0).gameObject.SetActive(true);
+
+					rightSphere = objectHit.transform.GetChild(1).gameObject;
+					objectHit.transform.GetChild(1).gameObject.SetActive(true);
+					// ---
+
+					// Move Player
+					player.position = objectHit.transform.position;	
+     			}
 			}
         }
 	}

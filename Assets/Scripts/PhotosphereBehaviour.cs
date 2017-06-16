@@ -89,7 +89,7 @@ public class PhotosphereBehaviour : MonoBehaviour {
     	if(state == "setImagePath"){
 
     		// Set variable based on text field
-    		GUI.Label(new Rect(Screen.width/2-250, Screen.height/2-20, 100, 20), "Image Path:", style);
+    		GUI.Label(new Rect(Screen.width/2-50, Screen.height/2-20, 100, 20), "Image Path:", style);
         	imagePath = GUI.TextField(new Rect(Screen.width/2-Screen.width/4, Screen.height/2, Screen.width/2, Screen.height/18), imagePath, 50);
 	       	
 	       	if (GUI.Button(new Rect(Screen.width/2-Screen.width/14,  Screen.height/2+Screen.height/14, Screen.width/7, Screen.height/9), "Set")){
@@ -105,7 +105,7 @@ public class PhotosphereBehaviour : MonoBehaviour {
     		}
 
     		// Set variable based on text field
-    		GUI.Label(new Rect(Screen.width/2-250, Screen.height/2-20, 100, 20), "Floorplan Image Name:", style);
+    		GUI.Label(new Rect(Screen.width/2-50, Screen.height/2-20, 100, 20), "Floorplan Image Name:", style);
         	floorplanPath = GUI.TextField(new Rect(Screen.width/2-Screen.width/4, Screen.height/2, Screen.width/2, Screen.height/18), floorplanPath, 50);
 	       	
 	       	if (GUI.Button(new Rect(Screen.width/2-Screen.width/14,  Screen.height/2+Screen.height/14, Screen.width/7, Screen.height/9), "Load")){

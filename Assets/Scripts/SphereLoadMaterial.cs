@@ -14,7 +14,8 @@ public class SphereLoadMaterial : MonoBehaviour {
 
 	IEnumerator WaitForLoad(){
 		// This can't spawn at the same time as behaviour, because it needs information from there, so we wait to make sure behaviour is loaded in
-		yield return new WaitForSeconds(0.1f);
+		// Load in 1 sphere at a time .5 seconds apart
+		yield return new WaitForSeconds(0.25f+0.25f*number);
 
 		if(GameObject.FindWithTag("Behaviour").GetComponent<PhotosphereBehaviour>().imagePath != ""){
 			leftChild = this.gameObject.transform.GetChild(0);

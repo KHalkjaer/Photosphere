@@ -8,6 +8,9 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/StereoTest2.unity
     guid: 7f0500a366c25894aa6e513e2453740a
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Main.unity
     guid: 932ec1dd38951cc40ab63149c1a77275
+  - enabled: 1
+    path: Assets/Scenes/MainWithNav.unity
+    guid: 54c01c2005b873249b4a717be8afca6f

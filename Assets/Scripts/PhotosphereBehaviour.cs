@@ -59,7 +59,7 @@ public class PhotosphereBehaviour : MonoBehaviour {
 	// Update is called once per frame
     void Update() {
     	if (state == "placeSphere"){
-	        if (Input.GetMouseButtonDown(0)) {
+	        if (Input.GetButtonDown("Fire1")) {
 
 	        	// Raycast from camera to mouse position
 	            RaycastHit hit;

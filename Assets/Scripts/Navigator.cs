@@ -18,11 +18,12 @@ public class Navigator : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetMouseButtonDown(0)){
-			RaycastHit objectHit;
 
-			Vector3 fwd = this.transform.TransformDirection(Vector3.forward);
-     		Debug.DrawRay(this.transform.position, fwd * 50, Color.green);
+		Vector3 fwd = this.transform.TransformDirection(Vector3.forward);
+ 		Debug.DrawRay(this.transform.position, fwd * 50, Color.green);
+
+		if(Input.GetButtonDown("Fire1")){
+			RaycastHit objectHit;
 
      		if (Physics.Raycast(this.transform.position, fwd, out objectHit, 50)){
      			if(objectHit.transform.gameObject.tag=="Sphere"){

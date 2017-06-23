@@ -6,7 +6,7 @@ PlayerSettings:
   serializedVersion: 11
   productGUID: d867abdb6e1b6584ba9055a23257aabb
   AndroidProfiler: 0
-  defaultScreenOrientation: 4
+  defaultScreenOrientation: 3
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
@@ -142,7 +142,7 @@ PlayerSettings:
   AndroidBundleVersionCode: 1
   AndroidMinSdkVersion: 19
   AndroidTargetSdkVersion: 0
-  AndroidPreferredInstallLocation: 1
+  AndroidPreferredInstallLocation: 0
   aotOptions: 
   stripEngineCode: 1
   iPhoneStrippingLevel: 0
@@ -231,7 +231,7 @@ PlayerSettings:
   - m_BuildTarget: Android
     m_Enabled: 1
     m_Devices:
-    - cardboard
+    - Oculus
   openGLRequireES31: 0
   openGLRequireES31AEP: 0
   webPlayerTemplate: APPLICATION:Default

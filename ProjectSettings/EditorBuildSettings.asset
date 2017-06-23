@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Main.unity
     guid: 932ec1dd38951cc40ab63149c1a77275
-  - enabled: 1
-    path: Assets/Scenes/MainWithNav.unity
+  - enabled: 0
+    path: Assets/Scenes/MainWithNavGVR.unity
     guid: 54c01c2005b873249b4a717be8afca6f
+  - enabled: 1
+    path: Assets/Scenes/MainNavOVR.unity
+    guid: 08d795fecff4a19438fdecb647cf4516

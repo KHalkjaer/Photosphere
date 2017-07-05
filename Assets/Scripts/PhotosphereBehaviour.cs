@@ -59,23 +59,31 @@ public class PhotosphereBehaviour : MonoBehaviour {
 	// Update is called once per frame
     void Update() {
     	if (state == "placeSphere"){
-	        if (Input.GetButtonDown("Fire1")) {
+    		// Placing Spheres on Desktop
+    		if (SystemInfo.deviceType == DeviceType.Desktop){
+		        if (Input.GetButtonDown("Fire1")) {
 
-	        	// Raycast from camera to mouse position
-	            RaycastHit hit;
-	            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+		        	// Raycast from camera to mouse position
+		            RaycastHit hit;
+		            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-	            if (Physics.Raycast(ray, out hit)){
-	            	// Create sphere at raycast hit location
-	                Transform newSphere = Instantiate(sphere,hit.point,Quaternion.identity);
-	                newestSphere = newSphere;
-	                newestSphere.GetComponent<SphereLoadMaterial>().number = sphereCount;
-					
-        			// Increment Count and go back to Main State
-        			sphereCount++;
-	                ChangeState("main");
-	            }
-	        }
+		            if (Physics.Raycast(ray, out hit)){
+		            	// Create sphere at raycast hit location
+		                Transform newSphere = Instantiate(sphere,hit.point,Quaternion.identity);
+		                newestSphere = newSphere;
+		                newestSphere.GetComponent<SphereLoadMaterial>().number = sphereCount;
+						
+	        			// Increment Count and go back to Main State
+	        			sphereCount++;
+		                ChangeState("main");
+		            }
+		        }
+    		}
+
+    		// Placing Spheres on Mobile
+    		if (SystemInfo.deviceType == DeviceType.Handheld){
+    			// Do things
+    		}
     	}
     } 
 

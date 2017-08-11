@@ -20,10 +20,21 @@ public class SaveMaterial : MonoBehaviour {
 	}
 
 	IEnumerator LoadFloorTexture(){
-		WWW www = new WWW("file://" + GameObject.FindWithTag("Behaviour").GetComponent<PhotosphereBehaviour>().imagePath + GameObject.FindWithTag("Behaviour").GetComponent<PhotosphereBehaviour>().floorplanPath);
-        yield return www;
+		if(GameObject.FindWithTag("Behaviour").GetComponent<PhotosphereBehaviour>().webImages){
+			WWW www = new WWW(GameObject.FindWithTag("Behaviour").GetComponent<PhotosphereBehaviour>().floorplanPath);
+	        yield return www;
 
-        Renderer renderer = gameObject.GetComponent<Renderer>();
-        renderer.material.mainTexture = www.texture;
+	        Renderer renderer = gameObject.GetComponent<Renderer>();
+	        renderer.material.mainTexture = www.texture;
+		}
+
+		if(!GameObject.FindWithTag("Behaviour").GetComponent<PhotosphereBehaviour>().webImages){
+			WWW www2 = new WWW("file://" + GameObject.FindWithTag("Behaviour").GetComponent<PhotosphereBehaviour>().imagePath + GameObject.FindWithTag("Behaviour").GetComponent<PhotosphereBehaviour>().floorplanPath);
+	        yield return www2;
+
+	        Renderer renderer = gameObject.GetComponent<Renderer>();
+	        renderer.material.mainTexture = www2.texture;
+		}
+		
 	}	
 }

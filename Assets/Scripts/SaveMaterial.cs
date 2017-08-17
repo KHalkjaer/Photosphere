@@ -19,6 +19,14 @@ public class SaveMaterial : MonoBehaviour {
 		}
 	}
 
+	[InspectorButton("OnButtonClicked")]
+	public bool loadFloor;
+
+	private void OnButtonClicked()
+	{
+	   StartCoroutine(LoadFloorTexture());
+	}
+
 	IEnumerator LoadFloorTexture(){
 		if(GameObject.FindWithTag("Behaviour").GetComponent<PhotosphereBehaviour>().webImages){
 			WWW www = new WWW(GameObject.FindWithTag("Behaviour").GetComponent<PhotosphereBehaviour>().floorplanPath);
